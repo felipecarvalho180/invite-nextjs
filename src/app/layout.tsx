@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Oxanium, Montserrat } from "next/font/google";
+import { Toaster } from "react-hot-toast";
 
 const oxanium = Oxanium({
   subsets: ["latin"],
@@ -26,7 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${oxanium.variable} ${montserrat.variable}`}>
       <body className="bg-gray-900 text-gray-100 antialiased bg-[url(/background.png)] bg-no-repeat bg-cover bg-top md:bg-right-top">
-        {children}
+        <main className="max-w-[1240px] mx-auto px-5 py-8 md:py-0">
+          {children}
+          <Toaster position="top-right" reverseOrder={false} />
+        </main>
       </body>
     </html>
   );
